@@ -1,9 +1,10 @@
 import { Logo } from "./Logo";
+import { Link } from "react-router-dom";
 
 const cols = [
-  { title: "Produit", links: ["Tarifs", "Capacités", "Sécurité", "Sources"] },
-  { title: "Société", links: ["À propos", "Identité", "Contact"] },
-  { title: "Légal", links: ["Confidentialité", "Conditions"] },
+  { title: "Produit", links: [["Tarifs", "/pricing"], ["Capacités", "/confection"], ["Agents", "/agents"], ["Sécurité", "/security"]] },
+  { title: "Société", links: [["À propos", "/about"], ["Identité", "/identity"], ["Contact", "/contact"]] },
+  { title: "Légal", links: [["Confidentialité", "/privacy"], ["Conditions", "/terms"], ["Sources", "/sources"]] },
 ];
 
 export const Footer = () => (
@@ -23,8 +24,8 @@ export const Footer = () => (
           <div key={c.title}>
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{c.title}</div>
             <ul className="mt-4 space-y-2.5">
-              {c.links.map((l) => (
-                <li key={l}><a href="#" className="text-sm text-foreground/80 hover:text-foreground">{l}</a></li>
+              {c.links.map(([l, to]) => (
+                <li key={l}><Link to={to} className="text-sm text-foreground/80 hover:text-foreground">{l}</Link></li>
               ))}
             </ul>
           </div>

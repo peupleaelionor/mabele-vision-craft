@@ -3,6 +3,7 @@ import { Hero } from "@/components/mabele/Hero";
 import { ChatTeaser } from "@/components/mabele/ChatTeaser";
 import { Capabilities } from "@/components/mabele/Capabilities";
 import { Trust } from "@/components/mabele/Trust";
+import { FinalCTA } from "@/components/mabele/FinalCTA";
 import { Footer } from "@/components/mabele/Footer";
 import { useEffect } from "react";
 
@@ -20,6 +21,7 @@ const Index = () => {
       <ChatTeaser />
       <Capabilities />
       <Trust />
+      <FinalCTA />
       <Footer />
     </main>
   );

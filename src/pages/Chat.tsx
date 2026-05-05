@@ -1,15 +1,22 @@
 import { useState, useRef, useEffect } from "react";
-import { ArrowUp, Plus, Sparkles } from "lucide-react";
+import { ArrowUp, Plus, Sparkles, ArrowLeft } from "lucide-react";
 import { Logo } from "@/components/mabele/Logo";
 import { Link } from "react-router-dom";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
 const suggestions = [
-  "Aide-moi à structurer un business plan",
-  "Résume ce document en 5 points clés",
-  "Génère une stratégie de lancement",
+  "Trouve-moi une idée rentable cette semaine.",
+  "Écris un message WhatsApp clair.",
+  "Comment investir au pays sans me faire arnaquer ?",
 ];
+
+const reply = (q: string) => {
+  if (/là|salut|bonjour|hello|t'es/i.test(q)) {
+    return "Oui. Dis-moi ce que tu veux construire, vendre, comprendre ou rédiger. Je te réponds clairement, avec une action concrète.";
+  }
+  return "Voici comment je vois les choses : commençons par clarifier l'objectif, puis identifions les deux ou trois leviers qui comptent vraiment. Dites-moi le contexte précis et je vous propose une première version concrète.";
+};
 
 const Chat = () => {
   const [messages, setMessages] = useState<Msg[]>([]);
@@ -22,11 +29,7 @@ const Chat = () => {
   const send = (text: string) => {
     const t = text.trim();
     if (!t) return;
-    setMessages((m) => [
-      ...m,
-      { role: "user", content: t },
-      { role: "assistant", content: "Voici comment je vois les choses : commençons par clarifier l'objectif, puis identifions les deux ou trois leviers qui comptent vraiment. Dites-moi le contexte précis et je vous propose une première version concrète." },
-    ]);
+    setMessages((m) => [...m, { role: "user", content: t }, { role: "assistant", content: reply(t) }]);
     setInput("");
   };
 
@@ -34,22 +37,23 @@ const Chat = () => {
 
   return (
     <div className="min-h-dvh flex flex-col bg-background">
-      {/* Slim header */}
       <header className="border-b hairline">
         <div className="container-edge h-14 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3"><Logo className="h-6" /></Link>
-          <span className="text-xs text-muted-foreground tracking-wide">MABELE AI</span>
+          <Link to="/" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
+            <ArrowLeft className="h-4 w-4" />
+            <Logo className="h-6" />
+          </Link>
+          <span className="text-[11px] tracking-[0.22em] uppercase text-muted-foreground">MABELE AI</span>
         </div>
       </header>
 
-      {/* Body */}
       <div className="flex-1 overflow-y-auto">
         <div className="container-edge max-w-3xl py-10 sm:py-16">
           {isEmpty ? (
-            <div className="text-center pt-10">
+            <div className="text-center pt-6 sm:pt-12">
               <Sparkles className="h-5 w-5 text-accent mx-auto" />
               <h1 className="mt-6 font-serif text-4xl sm:text-5xl tracking-tight">
-                Que veux-tu <span className="italic text-primary">créer</span> ?
+                Que veux-tu créer ?
               </h1>
               <p className="mt-4 text-muted-foreground max-w-md mx-auto">
                 Écris simplement. Mabele répond clairement et t'aide à passer à l'action.
@@ -85,7 +89,6 @@ const Chat = () => {
         </div>
       </div>
 
-      {/* Composer */}
       <div className="sticky bottom-0 bg-gradient-to-t from-background via-background to-background/0 pt-6 pb-4">
         <div className="container-edge max-w-3xl">
           <form
