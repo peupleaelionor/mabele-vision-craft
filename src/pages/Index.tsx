@@ -2,6 +2,7 @@ import { Header } from "@/components/mabele/Header";
 import { Hero } from "@/components/mabele/Hero";
 import { ChatTeaser } from "@/components/mabele/ChatTeaser";
 import { Capabilities } from "@/components/mabele/Capabilities";
+import { SovereigntyStack } from "@/components/mabele/SovereigntyStack";
 import { Trust } from "@/components/mabele/Trust";
 import { FinalCTA } from "@/components/mabele/FinalCTA";
 import { Footer } from "@/components/mabele/Footer";
@@ -20,6 +21,7 @@ const Index = () => {
       <Hero />
       <ChatTeaser />
       <Capabilities />
+      <SovereigntyStack />
       <Trust />
       <FinalCTA />
       <Footer />
