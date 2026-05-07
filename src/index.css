@@ -7,26 +7,26 @@
 @layer base {
   :root {
     /* MABELE brand palette - HSL */
-    --background: 43 38% 96%;          /* crème #F8F6F1 */
-    --foreground: 0 0% 5%;             /* noir profond #0E0E0E */
+    --background: 41 35% 95%;          /* crème #F7F4EE */
+    --foreground: 60 6% 6%;            /* #11110F */
 
-    --card: 43 38% 96%;
-    --card-foreground: 0 0% 5%;
+    --card: 42 100% 99%;               /* blanc chaud #FFFDF8 */
+    --card-foreground: 60 6% 6%;
 
-    --popover: 43 38% 96%;
-    --popover-foreground: 0 0% 5%;
+    --popover: 42 100% 99%;
+    --popover-foreground: 60 6% 6%;
 
-    --primary: 167 62% 14%;            /* vert forêt #0F3D32 */
-    --primary-foreground: 43 38% 96%;
+    --primary: 169 80% 13%;            /* vert profond #073D33 */
+    --primary-foreground: 41 35% 95%;
 
-    --secondary: 167 67% 9%;           /* vert sombre #082820 */
-    --secondary-foreground: 43 38% 96%;
+    --secondary: 169 82% 9%;
+    --secondary-foreground: 41 35% 95%;
 
-    --muted: 36 18% 84%;               /* bordures #DED7CD */
-    --muted-foreground: 33 5% 41%;     /* texte secondaire #6F6A63 */
+    --muted: 36 24% 83%;               /* #DED6C8 */
+    --muted-foreground: 33 6% 42%;     /* #6F6B64 */
 
-    --accent: 19 73% 45%;              /* cuivre #C85C20 */
-    --accent-foreground: 43 38% 96%;
+    --accent: 17 64% 47%;              /* cuivre #C65A2E */
+    --accent-foreground: 41 35% 95%;
 
     --destructive: 0 70% 45%;
     --destructive-foreground: 43 38% 96%;
@@ -70,7 +70,26 @@
   .shadow-copper { box-shadow: var(--shadow-copper); }
   .hairline { border-color: hsl(var(--border)); }
 
-  .container-edge { @apply mx-auto w-full max-w-[1240px] px-5 sm:px-8; }
+  .container-edge { @apply mx-auto w-full max-w-[1240px] px-6 sm:px-8; }
+  .safe-bottom { padding-bottom: max(env(safe-area-inset-bottom), 1.25rem); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+  .animate-fade-up { animation: fadeUp 0.7s var(--transition-smooth) both; }
+  .animate-fade-in { animation: fadeIn 0.8s ease both; }
+  .animate-blink { animation: blink 1s ease-in-out infinite; }
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+
+  .topo-bg {
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% 0%, hsl(var(--primary) / 0.06), transparent 60%),
+      repeating-radial-gradient(circle at 20% 110%, hsl(var(--primary) / 0.04) 0 1px, transparent 1px 28px),
+      repeating-radial-gradient(circle at 85% -10%, hsl(var(--accent) / 0.035) 0 1px, transparent 1px 36px);
+  }
 
   .copper-spark {
     display: inline-block;

@@ -1,39 +1,27 @@
-import { Logo } from "./Logo";
 import { Link } from "react-router-dom";
-
-const cols = [
-  { title: "Produit", links: [["Tarifs", "/pricing"], ["Capacités", "/confection"], ["Agents", "/agents"], ["Sécurité", "/security"]] },
-  { title: "Société", links: [["À propos", "/about"], ["Identité", "/identity"], ["Contact", "/contact"]] },
-  { title: "Légal", links: [["Confidentialité", "/privacy"], ["Conditions", "/terms"], ["Sources", "/sources"]] },
-];
+import { Logo } from "./Logo";
 
 export const Footer = () => (
   <footer className="bg-background border-t hairline">
-    <div className="container-edge py-16">
-      <div className="grid md:grid-cols-4 gap-12">
-        <div className="md:col-span-1">
+    <div className="container-edge py-14 sm:py-16">
+      <div className="flex flex-col items-start gap-6 sm:gap-8 sm:flex-row sm:items-center sm:justify-between">
+        <div>
           <Logo className="h-7" />
-          <p className="mt-5 text-sm text-muted-foreground max-w-xs">
-            Née en RDC, utile partout · Intelligence africaine.
-          </p>
-          <a href="mailto:contact@imabele.com" className="mt-4 inline-block text-sm text-foreground hover:text-primary">
+          <p className="mt-4 font-serif text-xl text-foreground">Née en RDC, utile partout.</p>
+          <a href="mailto:contact@imabele.com" className="mt-2 inline-block text-sm text-muted-foreground hover:text-foreground">
             contact@imabele.com
           </a>
         </div>
-        {cols.map((c) => (
-          <div key={c.title}>
-            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{c.title}</div>
-            <ul className="mt-4 space-y-2.5">
-              {c.links.map(([l, to]) => (
-                <li key={l}><Link to={to} className="text-sm text-foreground/80 hover:text-foreground">{l}</Link></li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-foreground/80">
+          <Link to="/privacy" className="hover:text-foreground">Confidentialité</Link>
+          <Link to="/terms" className="hover:text-foreground">Conditions</Link>
+          <Link to="/sources" className="hover:text-foreground">Sources</Link>
+          <Link to="/contact" className="hover:text-foreground">Contact</Link>
+        </nav>
       </div>
-      <div className="mt-14 pt-6 border-t hairline flex flex-col sm:flex-row justify-between gap-3 text-xs text-muted-foreground">
-        <span>© {new Date().getFullYear()} MABELE. Tous droits réservés.</span>
-        <span>Moteur Mayele · Made with care</span>
+      <div className="mt-10 pt-6 border-t hairline text-xs text-muted-foreground flex flex-col sm:flex-row gap-2 justify-between">
+        <span>© 2026 MABELE</span>
+        <span>Comprendre · Créer · Décider · Agir</span>
       </div>
     </div>
   </footer>

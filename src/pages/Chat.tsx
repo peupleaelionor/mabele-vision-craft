@@ -186,7 +186,7 @@ const Chat = () => {
                 <ArrowLeft className="h-4 w-4" />
               </Link>
               <div className="flex items-center gap-2">
-                <LogoMark className="h-5 w-5" tone="forest" />
+                <LogoMark className="h-5 w-5" />
                 <span className="text-[13px] font-medium">Mayele</span>
                 <span className="hidden sm:inline text-[11px] tracking-[0.18em] uppercase text-muted-foreground">· Instantané</span>
               </div>
