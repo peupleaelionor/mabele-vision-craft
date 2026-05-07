@@ -1,28 +1,37 @@
+import { useEffect } from "react";
 import { Header } from "@/components/mabele/Header";
 import { Hero } from "@/components/mabele/Hero";
-import { ChatTeaser } from "@/components/mabele/ChatTeaser";
-import { Capabilities } from "@/components/mabele/Capabilities";
-import { SovereigntyStack } from "@/components/mabele/SovereigntyStack";
-import { Trust } from "@/components/mabele/Trust";
+import { ChatDemo } from "@/components/mabele/ChatDemo";
+import { CapabilityGrid } from "@/components/mabele/CapabilityGrid";
+import { AfricanIntelligence } from "@/components/mabele/AfricanIntelligence";
+import { TrustStrip } from "@/components/mabele/TrustStrip";
+import { SecuritySection } from "@/components/mabele/SecuritySection";
+import { PricingSection } from "@/components/mabele/PricingSection";
 import { FinalCTA } from "@/components/mabele/FinalCTA";
 import { Footer } from "@/components/mabele/Footer";
-import { useEffect } from "react";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "MABELE AI — Penser plus clair. Construire plus fort.";
-    const meta = document.querySelector('meta[name="description"]') || document.head.appendChild(Object.assign(document.createElement('meta'), { name: 'description' }));
-    meta.setAttribute('content', "MABELE AI : intelligence africaine premium, née en RDC. Pensez plus clair, construisez plus fort.");
+    document.title = "MABELE — L'IA africaine pour comprendre, créer et décider";
+    const meta =
+      document.querySelector('meta[name="description"]') ||
+      document.head.appendChild(Object.assign(document.createElement("meta"), { name: "description" }));
+    meta.setAttribute(
+      "content",
+      "MABELE est l'intelligence artificielle africaine pour comprendre, créer et décider. Née en RDC, utile partout."
+    );
   }, []);
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-dvh bg-background pb-[env(safe-area-inset-bottom)]">
       <Header />
       <Hero />
-      <ChatTeaser />
-      <Capabilities />
-      <SovereigntyStack />
-      <Trust />
+      <TrustStrip />
+      <ChatDemo />
+      <CapabilityGrid />
+      <AfricanIntelligence />
+      <SecuritySection />
+      <PricingSection />
       <FinalCTA />
       <Footer />
     </main>
