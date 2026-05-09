@@ -54,14 +54,16 @@ const Card = ({
   );
 };
 
-// Bento layout pattern (mobile = simple, desktop = asymmetric)
+// Bento layout pattern (mobile = simple, desktop = asymmetric, 8 cards)
 const SPANS = [
-  "lg:col-span-2 lg:row-span-2",
+  "lg:col-span-3 lg:row-span-2",
+  "lg:col-span-3",
+  "lg:col-span-3",
   "lg:col-span-2",
   "lg:col-span-2",
   "lg:col-span-2",
-  "lg:col-span-2",
-  "lg:col-span-2 lg:row-span-2",
+  "lg:col-span-3",
+  "lg:col-span-3",
 ];
 
 export const CapabilityGrid = () => (
