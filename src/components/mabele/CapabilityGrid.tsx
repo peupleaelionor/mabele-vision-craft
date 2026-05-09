@@ -85,6 +85,15 @@ export const CapabilityGrid = () => (
           <Card key={c.title} i={i} {...c} span={SPANS[i] || "lg:col-span-2"} />
         ))}
       </div>
+
+      <div className="mt-12 flex justify-center">
+        <a
+          href="/agents"
+          className="inline-flex items-center gap-2 rounded-full border hairline bg-card px-6 py-3 text-sm text-foreground hover:border-primary/40 transition"
+        >
+          Voir tous les agents →
+        </a>
+      </div>
     </div>
   </section>
 );
