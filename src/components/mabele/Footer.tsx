@@ -1,27 +1,67 @@
 import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
 
+const cols = [
+  {
+    title: "Produit",
+    links: [
+      { to: "/chat", label: "Essayer Mabele" },
+      { to: "/agents", label: "Agents" },
+      { to: "/#capacites", label: "Capacités" },
+      { to: "/#tarifs", label: "Tarifs" },
+    ],
+  },
+  {
+    title: "Confiance",
+    links: [
+      { to: "/security", label: "Sécurité" },
+      { to: "/sources", label: "Sources" },
+      { to: "/privacy", label: "Confidentialité" },
+      { to: "/terms", label: "Conditions" },
+    ],
+  },
+  {
+    title: "À propos",
+    links: [
+      { to: "/about", label: "L'histoire" },
+      { to: "/identity", label: "Identité" },
+      { to: "/contact", label: "Contact" },
+      { to: "/login", label: "Connexion" },
+    ],
+  },
+];
+
 export const Footer = () => (
   <footer className="bg-background border-t hairline">
-    <div className="container-edge py-14 sm:py-16">
-      <div className="flex flex-col items-start gap-6 sm:gap-8 sm:flex-row sm:items-center sm:justify-between">
+    <div className="container-edge py-16 sm:py-20">
+      <div className="grid gap-12 lg:grid-cols-[1.4fr_2fr]">
         <div>
           <Logo className="h-7" />
-          <p className="mt-4 font-serif text-xl text-foreground">Née en RDC, utile partout.</p>
-          <a href="mailto:contact@imabele.com" className="mt-2 inline-block text-sm text-muted-foreground hover:text-foreground">
+          <p className="mt-5 font-serif text-2xl sm:text-3xl text-foreground leading-snug max-w-md">
+            Née en RDC, <span className="italic text-primary">utile partout.</span>
+          </p>
+          <a href="mailto:contact@imabele.com" className="mt-4 inline-block text-sm text-muted-foreground hover:text-foreground">
             contact@imabele.com
           </a>
         </div>
-        <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-foreground/80">
-          <Link to="/privacy" className="hover:text-foreground">Confidentialité</Link>
-          <Link to="/terms" className="hover:text-foreground">Conditions</Link>
-          <Link to="/sources" className="hover:text-foreground">Sources</Link>
-          <Link to="/contact" className="hover:text-foreground">Contact</Link>
-        </nav>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
+          {cols.map((c) => (
+            <div key={c.title}>
+              <div className="text-[10px] tracking-[0.22em] uppercase text-muted-foreground">{c.title}</div>
+              <ul className="mt-4 space-y-2.5 text-sm">
+                {c.links.map((l) => (
+                  <li key={l.to + l.label}>
+                    <Link to={l.to} className="text-foreground/80 hover:text-foreground transition">{l.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="mt-10 pt-6 border-t hairline text-xs text-muted-foreground flex flex-col sm:flex-row gap-2 justify-between">
-        <span>© 2026 MABELE</span>
-        <span>Comprendre · Créer · Décider · Agir</span>
+      <div className="mt-12 pt-6 border-t hairline text-xs text-muted-foreground flex flex-col sm:flex-row gap-2 justify-between">
+        <span>© 2026 MABELE — Une intelligence pour comprendre, créer et décider.</span>
+        <span className="tracking-[0.2em] uppercase">Comprendre · Créer · Décider · Agir</span>
       </div>
     </div>
   </footer>

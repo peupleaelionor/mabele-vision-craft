@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import Chat from "./pages/Chat.tsx";
 import Confection from "./pages/Confection.tsx";
 import Agents from "./pages/Agents.tsx";
+import ComingSoon from "./pages/ComingSoon.tsx";
 import Pricing from "./pages/Pricing.tsx";
 import About from "./pages/About.tsx";
 import Security from "./pages/Security.tsx";
@@ -36,6 +37,8 @@ const App = () => (
           <Route path="/chat" element={<Chat />} />
           <Route path="/confection" element={<Confection />} />
           <Route path="/agents" element={<Agents />} />
+          <Route path="/agents/chat" element={<Chat />} />
+          <Route path="/agents/:slug" element={<ComingSoon />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/about" element={<About />} />
           <Route path="/security" element={<Security />} />

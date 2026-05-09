@@ -23,17 +23,17 @@ export const FinalCTA = () => (
           </div>
           <p className="text-[11px] tracking-[0.22em] uppercase text-primary-foreground/60">Une seule question suffit</p>
           <h2 className="mt-6 font-serif text-4xl sm:text-6xl md:text-8xl leading-[0.98] tracking-[-0.02em]">
-            Construire <span className="italic text-accent">avec lucidité.</span>
+            Commencez avec <span className="italic text-accent">une question.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-primary-foreground/80">
-            Pour les idées, les documents, les décisions et les projets qui méritent
-            mieux qu'une réponse approximative.
+            Pas besoin de formation. Mabele vous guide simplement,
+            de la première idée à l'action concrète.
           </p>
           <Link
             to="/chat"
             className="mt-9 inline-flex items-center gap-2 rounded-full bg-primary-foreground px-7 py-3.5 text-sm sm:text-base text-primary shadow-soft hover:shadow-elevated transition"
           >
-            Essayer MABELE <ArrowUpRight className="h-4 w-4" />
+            Parler à Mabele <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
       </div>

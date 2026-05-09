@@ -26,13 +26,18 @@ const tools = [
 
 const groups: { label: string; items: string[] }[] = [
   { label: "Penser", items: ["Aide-moi à clarifier ma vision à 3 ans.", "Compare 3 stratégies de lancement."] },
-  { label: "Construire", items: ["Trouve une idée rentable cette semaine.", "Construis-moi un P&L mensuel simple."] },
+  { label: "Construire", items: ["J'ai 100$ à Kinshasa, quel business cette semaine ?", "Construis-moi un P&L mensuel simple."] },
   { label: "Écrire", items: ["Écris un message WhatsApp clair et chaleureux.", "Rédige une mise en demeure polie mais ferme."] },
 ];
 
 const reply = (q: string) => {
-  if (/là|salut|bonjour|hello|t'es/i.test(q))
-    return "Oui, je suis là. Dis-moi ce que tu veux construire, vendre, comprendre ou rédiger — je te réponds clairement, avec une action concrète à la fin.";
+  const s = q.trim().toLowerCase();
+  if (/^(t'?es l[àa]\??|salut|bonjour|hello|coucou|hey)/i.test(s))
+    return "Oui, je suis là. Pose-moi ta question.";
+  if (/tu peux faire quoi|que peux-tu|tes capacit/i.test(s))
+    return "Je peux t'aider à comprendre, écrire, analyser un document, préparer un business, créer une image, structurer une présentation, ou décider plus clairement. Dis-moi par où on commence.";
+  if (/^(merci|thanks)/i.test(s))
+    return "Avec plaisir. Si tu veux aller plus loin, dis-moi la prochaine étape.";
   return "Voici comment je le vois : commençons par clarifier l'objectif, puis isolons les deux ou trois leviers qui comptent vraiment. Donne-moi le contexte précis et je te propose une première version concrète, prête à utiliser.";
 };
 
@@ -44,7 +49,7 @@ const Chat = () => {
   const endRef = useRef<HTMLDivElement>(null);
   const taRef = useRef<HTMLTextAreaElement>(null);
 
-  useEffect(() => { document.title = "MABELE AI — Chat"; }, []);
+  useEffect(() => { document.title = "Mabele — Chat"; }, []);
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: "smooth" }); }, [messages]);
 
   const send = (text: string) => {
@@ -187,7 +192,7 @@ const Chat = () => {
               </Link>
               <div className="flex items-center gap-2">
                 <LogoMark className="h-5 w-5" />
-                <span className="text-[13px] font-medium">Mayele</span>
+                <span className="text-[13px] font-medium">Mabele</span>
                 <span className="hidden sm:inline text-[11px] tracking-[0.18em] uppercase text-muted-foreground">· Instantané</span>
               </div>
             </div>
@@ -255,7 +260,7 @@ const Chat = () => {
                   ) : (
                     <article key={i} className="max-w-[92%]">
                       <div className="text-[11px] tracking-[0.22em] uppercase text-muted-foreground inline-flex items-center gap-2">
-                        <span className="copper-spark" aria-hidden /> Mabele
+                        <LogoMark className="h-3.5 w-3.5" /> Mabele
                       </div>
                       <p className="mt-3 font-serif text-[22px] sm:text-[26px] leading-[1.25] text-foreground text-pretty">
                         {m.content}
@@ -308,7 +313,7 @@ const Chat = () => {
               </button>
             </form>
             <p className="mt-3 text-center text-[11px] text-muted-foreground tracking-wide">
-              Mabele peut se tromper · Vérifie les informations importantes
+              Mabele peut se tromper. Vérifiez les informations importantes.
             </p>
           </div>
         </div>

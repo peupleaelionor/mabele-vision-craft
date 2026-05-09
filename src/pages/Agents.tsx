@@ -1,38 +1,58 @@
-import { PageShell, PageHeader } from "@/components/mabele/PageShell";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import { Header } from "@/components/mabele/Header";
+import { Footer } from "@/components/mabele/Footer";
+import { LogoMark } from "@/components/mabele/Logo";
+import { AGENTS } from "@/lib/site-content";
+import { useEffect } from "react";
 
-const agents = [
-  { name: "Instantané", use: "Réponses rapides et précises.", ex: "Résume ce mail en 3 lignes." },
-  { name: "Réflexion longue", use: "Analyses profondes et structurées.", ex: "Compare 3 stratégies de lancement." },
-  { name: "Terrain", use: "Conseils ancrés dans le réel africain.", ex: "Comment ouvrir une boutique à Kinshasa ?" },
-  { name: "Business", use: "Décisions, modèles, opérations.", ex: "Construis-moi un P&L mensuel simple." },
-  { name: "Investisseur", use: "Lecture financière et risques.", ex: "Analyse cette opportunité immobilière." },
-  { name: "Admin & Droit", use: "Démarches, contrats, conformité.", ex: "Rédige une mise en demeure claire." },
-  { name: "Créatif", use: "Idées, naming, narration.", ex: "Trouve un nom pour ma marque de café." },
-  { name: "Tech", use: "Code, architecture, debug.", ex: "Refactore cette fonction TypeScript." },
-  { name: "Langues", use: "Français, anglais, lingala, et plus.", ex: "Traduis ce message en lingala chaleureux." },
-  { name: "Philosophe", use: "Cadrage, recul, sens.", ex: "Aide-moi à clarifier ma vision à 3 ans." },
-  { name: "Max Univers", use: "Le tout-en-un sans limite.", ex: "Ouvre un mode large multi-disciplinaire." },
-];
+const Agents = () => {
+  useEffect(() => { document.title = "Mabele — Agents"; }, []);
 
-const Agents = () => (
-  <PageShell title="Agents" description="Choisis ton Mayele : agents IA spécialisés pour chaque besoin.">
-    <PageHeader eyebrow="Agents" title="Choisis ton Mayele." lead="Onze agents spécialisés. Une seule intelligence." />
-    <section className="container-edge pb-24">
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {agents.map((a) => (
-          <div key={a.name} className="rounded-2xl border hairline bg-card p-6 flex flex-col">
-            <div className="font-serif text-2xl">{a.name}</div>
-            <p className="mt-2 text-sm text-muted-foreground">{a.use}</p>
-            <p className="mt-5 text-sm italic text-foreground/70 border-l-2 border-accent/40 pl-3">"{a.ex}"</p>
-            <Link to="/try" className="mt-6 inline-flex items-center gap-1.5 text-sm text-primary hover:opacity-80">
-              Utiliser <ArrowUpRight className="h-3.5 w-3.5" />
+  return (
+    <main className="min-h-dvh bg-background">
+      <Header />
+
+      <section className="container-edge pt-16 sm:pt-24 pb-10">
+        <div className="flex flex-col items-start gap-6 sm:gap-8 max-w-3xl">
+          <LogoMark className="h-10 w-10" />
+          <p className="text-[11px] tracking-[0.28em] uppercase text-muted-foreground inline-flex items-center gap-2">
+            <span className="copper-spark" aria-hidden /> Tous les agents
+          </p>
+          <h1 className="font-serif text-5xl sm:text-7xl leading-[0.98] tracking-[-0.02em] text-balance">
+            Une intelligence,<br />
+            <span className="italic text-primary">douze manières d'avancer.</span>
+          </h1>
+          <p className="text-base sm:text-lg text-muted-foreground max-w-xl">
+            Chaque agent ouvre une porte. Mabele reste la même —
+            simple en surface, puissante en profondeur.
+          </p>
+        </div>
+      </section>
+
+      <section className="container-edge pb-24 sm:pb-32">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {AGENTS.map((a) => (
+            <Link
+              key={a.slug}
+              to={`/agents/${a.slug}`}
+              className="group rounded-3xl border hairline bg-card p-7 flex flex-col hover:border-primary/30 hover:-translate-y-0.5 transition-all duration-300"
+            >
+              <div className="flex items-center justify-between">
+                <div className="font-serif text-2xl sm:text-3xl">{a.name}</div>
+                <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              </div>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{a.desc}</p>
+              <span className="mt-6 text-[10px] tracking-[0.22em] uppercase text-muted-foreground/80">
+                {a.slug === "chat" ? "Disponible" : "Bientôt"}
+              </span>
             </Link>
-          </div>
-        ))}
-      </div>
-    </section>
-  </PageShell>
-);
+          ))}
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+};
 export default Agents;

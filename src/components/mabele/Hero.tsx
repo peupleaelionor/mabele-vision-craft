@@ -24,11 +24,11 @@ export const Hero = () => {
         </p>
 
         <h1 className="mt-8 font-serif text-[2.75rem] leading-[0.98] sm:text-[5.5rem] md:text-[7rem] tracking-[-0.02em] text-balance">
-          <span className="block animate-fade-up delay-200">L'intelligence</span>
-          <span className="block italic text-primary animate-fade-up delay-300">africaine</span>
+          <span className="block animate-fade-up delay-200">Une seule</span>
+          <span className="block italic text-primary animate-fade-up delay-300">question</span>
           <span className="block animate-fade-up delay-400">
-            qui <span className="relative inline-block">
-              <span className="relative z-10">comprend.</span>
+            <span className="relative inline-block">
+              <span className="relative z-10">suffit.</span>
               <svg aria-hidden viewBox="0 0 200 14" className="absolute left-0 right-0 -bottom-1 w-full h-3" preserveAspectRatio="none">
                 <path d="M2 8 Q 50 2, 100 7 T 198 6" fill="none" stroke="hsl(var(--accent))" strokeWidth="2.5" strokeLinecap="round" />
               </svg>
@@ -37,8 +37,8 @@ export const Hero = () => {
         </h1>
 
         <p className="mx-auto mt-8 max-w-xl text-base sm:text-lg text-muted-foreground text-pretty animate-fade-up delay-400">
-          MABELE transforme une question en réponse claire, documentée et actionnable.
-          Pour les citoyens, entrepreneurs, étudiants et organisations.
+          Posez une question. Mabele vous aide à comprendre, décider, créer
+          et passer à l'action. Née en RDC, utile partout.
         </p>
 
         {/* Prompt box */}
@@ -50,7 +50,7 @@ export const Hero = () => {
             <input
               type="text"
               name="q"
-              placeholder="Demandez à MABELE de vous aider…"
+              placeholder="Demandez à Mabele…"
               className="flex-1 bg-transparent outline-none text-[15px] px-4 py-3.5 placeholder:text-muted-foreground"
             />
             <button
@@ -70,7 +70,7 @@ export const Hero = () => {
             data-cursor
             className="group inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm sm:text-base text-primary-foreground shadow-soft hover:shadow-elevated transition-all will-change-transform"
           >
-            Essayer MABELE
+            Parler à Mabele
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
           <a
