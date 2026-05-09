@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { LogoMark } from "./Logo";
 
-const userMsg = "Aide-moi à lancer un projet rentable en RDC.";
+const userMsg = "J'ai 100$ à Kinshasa, quel business réaliste lancer cette semaine ?";
 const replyLines = [
-  "1. Marché — viser un besoin quotidien : logistique de quartier, paiement mobile, formation pratique.",
-  "2. Offre — démarrer petit : un service clair, un prix simple, une promesse tenable en 7 jours.",
-  "3. Première action — interroger 10 clients potentiels cette semaine et vendre la version manuelle avant tout code.",
+  "Vise une vente rapide, pas un gros projet.",
+  "Choisis une offre simple : un produit clair, un prix simple, une promesse tenable en 7 jours.",
+  "Parle à 30 personnes cette semaine et valide une première commande avant d'acheter trop de stock.",
 ];
 
 export const ChatDemo = () => {
@@ -24,7 +24,7 @@ export const ChatDemo = () => {
         <div className="mx-auto max-w-3xl rounded-[28px] border hairline bg-card shadow-soft p-5 sm:p-8">
           <div className="flex items-center justify-between">
             <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase text-muted-foreground">
-              <span className="copper-spark" aria-hidden /> Démo Mayele
+              <span className="copper-spark" aria-hidden /> Démo Mabele
             </div>
             <Link to="/chat" className="text-xs text-primary inline-flex items-center gap-1 hover:gap-1.5 transition-all">
               Ouvrir le chat <ArrowUpRight className="h-3 w-3" />
@@ -62,7 +62,7 @@ export const ChatDemo = () => {
 
           {/* Mode selector */}
           <div className="mt-8 pt-5 border-t hairline">
-            <div className="text-[10px] tracking-[0.22em] uppercase text-muted-foreground mb-3">Mode Mayele</div>
+            <div className="text-[10px] tracking-[0.22em] uppercase text-muted-foreground mb-3">Mode Mabele</div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {[
                 { k: "Instantané", d: "Réponse rapide" },

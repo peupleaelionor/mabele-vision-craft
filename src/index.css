@@ -6,34 +6,34 @@
 
 @layer base {
   :root {
-    /* MABELE brand palette - HSL */
-    --background: 41 35% 95%;          /* crème #F7F4EE */
-    --foreground: 60 6% 6%;            /* #11110F */
+    /* MABELE brand palette - HSL (officiel) */
+    --background: 43 32% 96%;          /* crème #F8F6F1 */
+    --foreground: 0 0% 5%;             /* noir profond #0E0E0E */
 
-    --card: 42 100% 99%;               /* blanc chaud #FFFDF8 */
-    --card-foreground: 60 6% 6%;
+    --card: 43 40% 98%;                /* blanc chaud */
+    --card-foreground: 0 0% 5%;
 
-    --popover: 42 100% 99%;
-    --popover-foreground: 60 6% 6%;
+    --popover: 43 40% 98%;
+    --popover-foreground: 0 0% 5%;
 
-    --primary: 169 80% 13%;            /* vert profond #073D33 */
-    --primary-foreground: 41 35% 95%;
+    --primary: 169 62% 14%;            /* vert forêt #0F3D32 */
+    --primary-foreground: 43 32% 96%;
 
-    --secondary: 169 82% 9%;
-    --secondary-foreground: 41 35% 95%;
+    --secondary: 169 67% 9%;           /* vert sombre #082820 */
+    --secondary-foreground: 43 32% 96%;
 
-    --muted: 36 24% 83%;               /* #DED6C8 */
-    --muted-foreground: 33 6% 42%;     /* #6F6B64 */
+    --muted: 36 18% 84%;               /* bordure #DED7CD */
+    --muted-foreground: 33 5% 42%;     /* texte secondaire #6F6A63 */
 
-    --accent: 17 64% 47%;              /* cuivre #C65A2E */
-    --accent-foreground: 41 35% 95%;
+    --accent: 19 73% 45%;              /* cuivre #C85C20 */
+    --accent-foreground: 43 32% 96%;
 
     --destructive: 0 70% 45%;
-    --destructive-foreground: 43 38% 96%;
+    --destructive-foreground: 43 32% 96%;
 
-    --border: 36 18% 84%;
+    --border: 36 18% 84%;              /* #DED7CD */
     --input: 36 18% 84%;
-    --ring: 167 62% 14%;
+    --ring: 169 62% 14%;
 
     --radius: 1rem;
 
